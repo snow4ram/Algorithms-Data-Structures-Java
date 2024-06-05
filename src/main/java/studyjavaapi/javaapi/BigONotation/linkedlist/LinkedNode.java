@@ -1,10 +1,8 @@
-package studyjavaapi.javaapi.BigONotation.link;
+package studyjavaapi.javaapi.BigONotation.linkedlist;
 
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -17,6 +15,10 @@ public class LinkedNode {
     private LinkedNode previous; //이전의
 
     public LinkedNode(Integer element) {
+        this.element = element;
+    }
+
+    public void update(Integer element) {
         this.element = element;
     }
 

@@ -1,4 +1,4 @@
-package studyjavaapi.javaapi.BigONotation.link;
+package studyjavaapi.javaapi.BigONotation.linkedlist;
 
 
 import java.util.Objects;
@@ -33,6 +33,21 @@ public class LinkedListNode {
         throw new IllegalArgumentException("해당 인덱스에 대한 정보는 없습니다.");
     }
 
+    public void update(Integer find, Integer updateValue) {
+        LinkedNode findNode = get(find);
+        findNode.update(updateValue);
+    }
+
+    public LinkedNode last() {
+        LinkedNode node = head;
+        for (int i = 0; i < size(); i++) {
+            if (node.getNext() != null) {
+                node = node.getNext();
+            }
+        }
+        return node;
+    }
+
     public void delete(LinkedNode nodeToDelete) {
         //이전(previous)값
         LinkedNode previousNode = nodeToDelete.getPrevious();
@@ -55,7 +70,7 @@ public class LinkedListNode {
         Integer size = 0;
         while (next != null) {
             next = next.getNext();
-            size ++;
+            size++;
         }
         return size;
     }
