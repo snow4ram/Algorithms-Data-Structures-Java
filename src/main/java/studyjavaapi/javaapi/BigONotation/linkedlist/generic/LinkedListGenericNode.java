@@ -63,6 +63,28 @@ public class LinkedListGenericNode<E> {
         nodeToDelete.setNext(null);
     }
 
+    public void insert(GenericNode<E> referenceNode, E newNode) {
+        // 이전 노드를 가져옴
+        var previousNode = referenceNode.getPrevious();
+        // 새 노드 생성
+        var node = new GenericNode<>(newNode);
+
+        node.setNext(referenceNode);
+
+        if (previousNode == null) {
+            // head 업데이트
+            head = node;
+        }
+
+        if (previousNode != null){
+            previousNode.setNext(node);
+        }
+
+        node.setPrevious(previousNode);
+
+        referenceNode.setPrevious(node);
+    }
+
     public int size() {
         GenericNode<E> next = head;
         int size = 0;
