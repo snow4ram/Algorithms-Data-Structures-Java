@@ -1,6 +1,6 @@
-package studyjavaapi.javaapi.BigONotation.link;
+package studyjavaapi.javaapi.BigONotation.linkedlist;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 
-@Slf4j
+//@Slf4j
 class LinkedListNodeTest {
 
     private final LinkedListNode list = new LinkedListNode();
@@ -64,6 +64,36 @@ class LinkedListNodeTest {
 
         // Then
         assertThat(list.size()).isEqualTo(expectedSizeAfterDeletion);
+
+    }
+
+    @Test
+    @DisplayName("LinkedList에 마지막 인덱스 값 찾기")
+    public void last() {
+        //Give
+        Integer lastIndex = 25;
+
+        // When
+        LinkedNode last = list.last();
+
+        //Then
+        assertThat(last.getElement()).isEqualTo(lastIndex);
+
+    }
+
+    @Test
+    @DisplayName("LinkedList에 값 업데이트")
+    public void update() {
+        //Give
+        Integer find = 2;
+        Integer updateValue = 50;
+
+        //When
+        list.update(find, updateValue);
+
+        //Then
+        assertThat(list.get(find).getElement()).isEqualTo(updateValue);
+
 
     }
 
