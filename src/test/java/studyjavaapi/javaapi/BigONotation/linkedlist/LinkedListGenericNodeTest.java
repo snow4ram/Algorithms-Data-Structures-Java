@@ -68,6 +68,29 @@ class LinkedListGenericNodeTest {
     }
 
     @Test
+    @DisplayName("Linked List의 특정 위치에 새 노드를 삽입합니다.")
+    public void insert() {
+        // Give
+        int insertIndex = 4;
+        int expectedSize = 6;
+        String newValue = "15";
+
+        var originalNode = list.get(insertIndex);
+
+        // When
+        list.insert(originalNode, newValue);
+        var insertedNode = list.get(insertIndex);
+        var nextNode = insertedNode.getNext();
+
+        // Then
+        assertThat(list.size()).isEqualTo(expectedSize);
+        assertThat(insertedNode.getElement()).isEqualTo(newValue);
+        assertThat(nextNode).isEqualTo(originalNode); //
+
+    }
+
+
+    @Test
     @DisplayName("LinkedList에 마지막 인덱스 값 찾기")
     public void last() {
         //Give
